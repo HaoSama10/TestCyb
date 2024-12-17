@@ -25,18 +25,3 @@ $warningWindow.Topmost = $true
 $warningWindow.Background = 'Red'
 $warningWindow.Foreground = 'White'
 $warningWindow.ShowDialog()
-
-# Grande fenêtre WPF pour "TOUS VOS FICHIERS SONT CHIFFRES"
-$window = New-Object Windows.Window
-$window.Title = 'ALERTE SECURITE'
-$window.Content = 'BISOU <3'
-$window.FontSize = 48
-# Adapter la taille de la fenêtre en fonction de la taille de l'écran
-$window.Width = $screenWidth  # 80% de la largeur de l'écran
-$window.Height = $screenHeight  # 50% de la hauteur de l'écran
-$warningWindow.Left = ($screenWidth - $warningWindow.Width) / 2
-$warningWindow.Top = ($screenHeight - $warningWindow.Height) / 2
-$warningWindow.Topmost = $true
-$window.Background = 'Red'
-$window.Foreground = 'White'
-$window.ShowDialog()
